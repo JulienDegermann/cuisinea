@@ -12,7 +12,10 @@ require_once 'lib/pdo.php';
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/override-bootstrap.css">
 
-  <title>Cuisinéa</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/cuisinea_favicon.png">
+
+
+  <title>Cuisinéa - <?= $menus[$current_page]; ?></title>
 </head>
 
 <body>

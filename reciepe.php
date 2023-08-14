@@ -1,15 +1,17 @@
 <?php
 require_once 'templates/header.php';
 require_once 'classes/class_reciepe.php';
+require_once 'lib/function.php';
 ?>
 
 
 <section class="container col-xxl-8 px-4 py-5">
-  <div class="row flex-lg-row align-items-center g-5 py-5">
-    <h2>Toutes nos recettes</h2>
+  <div class="row flex-lg-row align-items-center g-5">
     <?php
-    $recipe_id = $_GET['id'];
-    echo $id;
+    $id = intval($_GET['id']);
+    $reciepe = getReciepeById($pdo, $id);
+    $current = new Reciepe($reciepe[0]['id'], $reciepe[0]['title'],$reciepe[0]['description'], $reciepe[0]['ingredients'], $reciepe[0]['instructions'], $reciepe[0]['image']);
+    $current->view_detail();
     ?>
   </div>
 </section>

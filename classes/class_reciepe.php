@@ -7,33 +7,32 @@ class Reciepe
   public $ingredients;
   public $image;
   public $instructions;
+  public $description;
+  public $category_id;
 
-  function __construct(int $id, string $title, string $ingredients, string $instructions, string $image = null)
+  function __construct(int $id,  $title,  $description,  $ingredients, $instructions, $category_id, $image = null)
   {
     $this->id = $id;
     $this->title = $title;
     $this->ingredients = $ingredients;
-    $this->image = $image ? _UPLOADS_IMG_DIR_.$image : _ASSETS_IMG_DIR_.'recipe_default.jpg';
+    $this->image = $image ? _UPLOADS_IMG_DIR_ . $image : _ASSETS_IMG_DIR_ . 'recipe_default.jpg';
     $this->instructions = $instructions;
-  }
-
-  function getReciepeById(PDO $pdo, int $id)
-  {
-    $sql = "SELECT FROM reciepes WHERE id = :id;";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $stmt = null;
-    return $result;
+    $this->description = $description;
+    $this->category_id = $category_id;
   }
 
   function view_list()
   {
     require 'templates/partial_reciepe_list.php';
   }
+  function view_detail()
+  {
+    require 'templates/reciepe_detail.php';
+  }
 };
-function getAllReciepes(PDO $pdo, int|null $limit=null)
+
+// $pdo functions
+function getAllReciepes(PDO $pdo, int $limit = null)
 {
   $sql = "SELECT * FROM recipes ORDER BY id DESC ";
   $sql .= $limit ? 'LIMIT :limit;' : ';';
@@ -43,6 +42,32 @@ function getAllReciepes(PDO $pdo, int|null $limit=null)
   }
   $stmt->execute();
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $stmt = null;
+  return $result;
+}
+
+function getReciepeById(PDO $pdo, int $id)
+{
+  $sql = "SELECT * FROM recipes WHERE id = :id;";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $stmt = null;
+  return $result;
+}
+
+function new_reciepe(PDO $pdo,  $title, int $category,  $description,  $ingredients,  $instructions, string|null $image = null)
+{
+  $sql = "INSERT INTO recipes (title, category_id, description, ingredients, instructions, image) VALUES (:title, :category_id, :description, :ingredients, :instructions, :image);";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+  $stmt->bindParam(':category_id', $category, PDO::PARAM_INT);
+  $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+  $stmt->bindParam(':ingredients', $ingredients, PDO::PARAM_STR);
+  $stmt->bindParam(':instructions', $instructions, PDO::PARAM_STR);
+  $stmt->bindParam(':image', $image, PDO::PARAM_STR);
+  $result = $stmt->execute();
   $stmt = null;
   return $result;
 }

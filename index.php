@@ -1,11 +1,10 @@
 <?php
 require_once 'templates/header.php';
 require_once 'lib/function.php';
-
 require_once 'classes/class_reciepe.php';
 ?>
 
-<section class="container col-xxl-8 px-4 py-5">
+<section class="container col-xxl-8 px-4">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
       <img src="assets/images/logo-cuisinea.jpg" class="d-block mx-lg-auto img-fluid" alt="logo Cuisinea" width="700" height="500" loading="lazy">
@@ -20,21 +19,16 @@ require_once 'classes/class_reciepe.php';
   </div>
 </section>
 
-
-
-<section class="container col-xxl-8 px-4 py-5">
+<section class="container col-xxl-8 px-4">
   <div class="row flex-lg-row align-items-center g-5 py-5">
     <h2>Nos dernières recettes</h2>
 
     <?php
     $reciepies = getAllReciepes($pdo, 3);
     foreach ($reciepies as $reciepe) {
-
-      $current = new Reciepe ($reciepe['id'], $reciepe['title'], $reciepe['ingredients'], $reciepe['instructions'], $reciepe['image']);
+      $current = new Reciepe ($reciepe['id'], $reciepe['title'], $reciepe['description'], $reciepe['ingredients'], $reciepe['instructions'], $reciepe['category_id'], $reciepe['image']);
       $current->view_list();
     }
-
-
     ?>
   </div>
 </section>
