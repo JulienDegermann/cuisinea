@@ -1,6 +1,13 @@
 <?php
+session_start();
 require_once 'lib/config.php';
 require_once 'lib/pdo.php';
+
+if (isset($_POST['logout'])) {
+  session_unset();
+  session_destroy();
+  session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,33 +18,56 @@ require_once 'lib/pdo.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/override-bootstrap.css">
-
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/x-icon" href="assets/images/cuisinea_favicon.png">
 
-
-  <title>Cuisinéa - <?= $menus[$current_page]; ?></title>
+  <title>Cuisinéa - <?= $pages[$current_page]; ?></title>
 </head>
 
 <body>
 
   <!-- FIX DISPLAY MOBILE -->
-  <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <div class="col-md-3 mb-2 mb-md-0">
-        <a href="index.php" class="d-inline-flex link-body-emphasis text-decoration-none">
-          <img src="assets/images/logo-cuisinea-horizontal.jpg" alt="logo Cuisinea" class="w-100">
-        </a>
+  <header class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="position-relative flex-wrap d-flex align-items-center justify-content-between py-3 border-bottom ">
+        <!-- flex-wrap   w-100  -->
+        <div class="col-12 col-lg-3 md-2 mb-md-0">
+          <a href="index.php" class="
+              d-inline-block 
+              w-100 
+              navbar-brand
+              link-body-emphasis 
+              text-decoration-none">
+            <img src="assets/images/logo-cuisinea-horizontal.jpg" alt="logo Cuisinea" class="w-100">
+          </a>
+        </div>
+        <!-- <div class="collapse navbar-collapse col-12 col-md-auto text-center " id="navbarNavAltMarkup"> -->
+        <!-- <nav> -->
+        <!-- <nav class="nav mb-2 justify-content-center col-12 mb-md-0"> -->
+
+        <!-- </div> -->
+        <!-- </nav> -->
+        <nav class="collapse navbar-collapse nav mb-2 justify-content-center col-12 col-md-auto mb-md-0" id="navbarNavAltMarkup">
+          <?php require 'templates/partial_nav.php'; ?>
+        </nav>
+        <div class=" col-3 col-md-3 d-inline-flex text-end">
+          <?php
+          if (!isset($_SESSION['user'])) { ?>
+            <a href="sign_in.php" class="btn btn-outline-primary me-1">Inscription</a>
+            <a href="login.php" class="btn btn-primary">Connexion</a>
+          <?php } else { ?>
+            <a href="logout.php" class="btn btn-outline-primary me-1">Déconnexion</a>
+          <?php } ?>
+        </div>
+        <button class="navbar-toggler col-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <?php require 'templates/partial_nav.php'; ?>
-
-      </ul>
-
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
-      </div>
-    </header>
-  </div>
-  <main>
+    </div>
+  </header>
+  <main class="position-relative">
+    <div class="container text-secondary w-100 m-auto position-absolute top-0 start-50 translate-middle-x text-end">
+      <?php if (isset($_SESSION['user'])) { ?>
+        <p class="">Bonjour <?= $_SESSION['user']['first_name']; ?></p>
+      <?php } ?>
+    </div>

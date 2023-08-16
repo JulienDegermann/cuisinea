@@ -1,0 +1,23 @@
+.hidden {
+  display: none;
+}
+
+.click {
+  cursor: pointer;
+  height: 35%;
+  width: auto;
+}
+
+.click svg {
+  fill: gray;
+  height: 100%;
+  width: 100%;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body > main {
+  flex: 1!important;
+}

@@ -1,0 +1,3 @@
+# pdo connexion
+lib/pdo.php
+*.log

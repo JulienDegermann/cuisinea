@@ -8,9 +8,9 @@ class Reciepe
   public $image;
   public $instructions;
   public $description;
-  public $category_id;
+  public $category;
 
-  function __construct(int $id,  $title,  $description,  $ingredients, $instructions, $category_id, $image = null)
+  function __construct(int $id, string $title, string $description, string $ingredients, string $instructions, string $category = null, $image = null)
   {
     $this->id = $id;
     $this->title = $title;
@@ -18,7 +18,7 @@ class Reciepe
     $this->image = $image ? _UPLOADS_IMG_DIR_ . $image : _ASSETS_IMG_DIR_ . 'recipe_default.jpg';
     $this->instructions = $instructions;
     $this->description = $description;
-    $this->category_id = $category_id;
+    $this->category = $category;
   }
 
   function view_list()

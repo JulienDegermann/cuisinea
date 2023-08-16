@@ -14,7 +14,7 @@ function getAllCategories (PDO $pdo) {
 }
 
 function getCategoryById (PDO $pdo, int $id) {
-  $sql = "SELECT * FROM categories WHERE id= :id;";
+  $sql = "SELECT name FROM categories WHERE id= :id;";
   $stmt = $pdo->prepare($sql);
   $stmt->bindParam(':id', $id, PDO::PARAM_INT);
   $stmt->execute();

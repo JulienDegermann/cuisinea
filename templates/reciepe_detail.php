@@ -14,7 +14,7 @@
 <section class="container col-xxl-8 px-4 py-2">
   <h2>Liste des ingrédients</h2>
   <div class="row flex-lg-row-reverse align-items-center g-5">
-    <ul class="list-group">
+    <ul class="list-group px-2">
       <?php
       $ingredients = stringToArray($this->ingredients);
       foreach ($ingredients as $ingredient) { ?>
@@ -27,7 +27,7 @@
 <section class="container col-xxl-8 px-4 py-2">
   <h2>Préparation</h2>
   <div class="row flex-lg-row-reverse align-items-center g-5">
-    <ol class="list-group list-group-numbered">
+    <ol class="list-group list-group-numbered px-2">
       <?php
       $instructions = stringToArray($this->instructions);
       foreach ($instructions as $instruction) { ?>
