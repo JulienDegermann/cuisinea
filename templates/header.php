@@ -29,12 +29,12 @@ if (isset($_POST['logout'])) {
   <!-- FIX DISPLAY MOBILE -->
   <header class="navbar navbar-expand-lg">
     <div class="container">
-      <div class="position-relative flex-wrap d-flex align-items-center justify-content-between py-3 border-bottom ">
+      <div class="position-relative flex-wrap d-flex align-items-center justify-content-between py-3 border-bottom w-100">
         <!-- flex-wrap   w-100  -->
         <div class="col-12 col-lg-3 md-2 mb-md-0">
           <a href="index.php" class="
               d-inline-block 
-              w-100 
+              w-auto
               navbar-brand
               link-body-emphasis 
               text-decoration-none">
@@ -50,7 +50,7 @@ if (isset($_POST['logout'])) {
         <nav class="collapse navbar-collapse nav mb-2 justify-content-center col-12 col-md-auto mb-md-0" id="navbarNavAltMarkup">
           <?php require 'templates/partial_nav.php'; ?>
         </nav>
-        <div class=" col-3 col-md-3 d-inline-flex text-end">
+        <div class=" col-3 col-md-auto d-inline-flex text-end">
           <?php
           if (!isset($_SESSION['user'])) { ?>
             <a href="sign_in.php" class="btn btn-outline-primary me-1">Inscription</a>

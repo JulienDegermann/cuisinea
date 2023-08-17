@@ -18,8 +18,7 @@ if (isset($_SESSION['successes'])) {
 }
 ?>
 
-
-<section class="w-50 container py-5">
+<section class="container py-5">
   <?php
   foreach ($errors as $error) { ?>
     <div class="my-1 alert alert-danger" role="alert">

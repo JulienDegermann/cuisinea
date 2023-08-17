@@ -7,7 +7,7 @@
       <a href="index.php" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
         <img src="assets/images/logo-cuisinea-horizontal.jpg" width="100" alt="logo cuisinéa">
       </a>
-      <span class="mb-3 position-absolute bottom-0 start-50 translate-middle-x mb-md-0 text-secondary fst-italic" style="font-size: 12px;">© 2023 Cuisinéa by Julien Degermann</span>
+      <span class="m-0 mb-1 position-absolute bottom-0 start-0 w-100 text-center text-secondary fst-italic" style="font-size: 12px;">© 2023 Cuisinéa by Julien Degermann</span>
     </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

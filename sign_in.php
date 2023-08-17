@@ -3,12 +3,8 @@ require_once 'templates/header.php';
 require_once 'classes/class_users.php';
 require_once 'lib/function.php';
 
-
 $errors = [];
 $successes = [];
-
-
-
 
 //get inputs values if error not to complete all
 if (isset($_POST['email'])) {
@@ -36,7 +32,7 @@ if (isset($_POST['email'])) {
 ?>
 
 <div class="container py-5">
-  <div class="row py-5 d-flex">
+  <div class="row d-flex">
     <div class="form-signin m-auto col-lg-6">
       <?php
       foreach ($errors as $error) { ?>

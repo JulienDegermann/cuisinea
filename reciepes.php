@@ -5,8 +5,8 @@ require_once 'lib/function.php';
 ?>
 
 
-<section class="container col-xxl-8 px-4">
-  <div class="row flex-lg-row align-items-center g-5 py-5">
+<section class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row align-items-center g-5">
     <h1 class="text-center">Toutes nos recettes</h1>
     <?php
     $reciepies = getAllReciepes($pdo);

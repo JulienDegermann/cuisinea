@@ -4,8 +4,8 @@ require_once 'lib/function.php';
 require_once 'classes/class_reciepe.php';
 ?>
 
-<section class="container col-xxl-8 px-4">
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+<section class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5">
     <div class="col-10 mx-auto col-sm-8 col-lg-6">
       <img src="assets/images/logo-cuisinea.jpg" class="d-block mx-lg-auto img-fluid" alt="logo Cuisinea" width="700" height="500" loading="lazy">
     </div>
