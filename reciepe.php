@@ -10,9 +10,12 @@ require_once 'lib/function.php';
     <?php
     $id = intval($_GET['id']);
     $reciepe = getReciepeById($pdo, $id);
-    $current = new Reciepe($reciepe[0]['id'], $reciepe[0]['title'],$reciepe[0]['description'], $reciepe[0]['ingredients'], $reciepe[0]['instructions'], $reciepe[0]['image']);
-    $current->view_detail();
-    ?>
+    if ($reciepe) {
+      $current = new Reciepe($reciepe[0]['id'], $reciepe[0]['title'], $reciepe[0]['description'], $reciepe[0]['ingredients'], $reciepe[0]['instructions'], $reciepe[0]['image']);
+      $current->view_detail();
+    } else { ?>
+      <h1 class="text-center">OOPS Recette introuvable !</h1>
+    <?php } ?>
   </div>
 </section>
 

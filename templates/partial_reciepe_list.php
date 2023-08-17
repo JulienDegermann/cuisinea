@@ -10,7 +10,7 @@ require_once 'lib/pdo.php';
       <h5 class="card-title"><?= $this->title; ?></h5>
       <span class="badge bg-primary position-absolute" style="top 10px; right: 10px"><?= $this->category; ?></span>
       <!-- <p><?= $this->description; ?></p> -->
-      <a href="reciepe.php?id=<?= $this->id; ?>" class="btn btn-primary">Voir la recette</a>
+      <a href="recette/<?= $this->id; ?>" class="btn btn-primary">Voir la recette</a>
     </div>
   </div>
 </div>

@@ -15,30 +15,37 @@ if (isset($_POST['logout'])) {
 
 <head>
   <meta charset="UTF-8">
+  <base href="/cuisinea/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/override-bootstrap.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" type="image/x-icon" href="assets/images/cuisinea_favicon.png">
+  <link rel="icon" type="image/x-icon" href="<?= _ASSETS_IMG_DIR_ ;?>cuisinea_favicon.png">
+
+  <meta charset="UTF-8">
+  <!-- <meta name="title" property="og:title" content="Cuisinéa - <?= $pages[$current_page]; ?>"> -->
+  <meta name="description" property="og:description" content="<?= $meta_description; ?>">
+  <meta name="image" property="og:image" content="<?= _ASSETS_IMG_DIR_ ;?>logo-cuisinea-horizontal.jpg">
+  <meta name="author" content="Julien Degermann">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Cuisinéa - <?= $pages[$current_page]; ?></title>
 </head>
 
 <body>
-
   <!-- FIX DISPLAY MOBILE -->
   <header class="navbar navbar-expand-lg">
     <div class="container">
       <div class="position-relative flex-wrap d-flex align-items-center justify-content-between py-3 border-bottom w-100">
         <!-- flex-wrap   w-100  -->
         <div class="col-12 col-lg-3 md-2 mb-md-0">
-          <a href="index.php" class="
+          <a href="" class="
               d-inline-block 
               w-auto
               navbar-brand
               link-body-emphasis 
               text-decoration-none">
-            <img src="assets/images/logo-cuisinea-horizontal.jpg" alt="logo Cuisinea" class="w-100">
+            <img src="<?= _ASSETS_IMG_DIR_ ;?>logo-cuisinea-horizontal.jpg" alt="logo Cuisinea" class="w-100">
           </a>
         </div>
         <!-- <div class="collapse navbar-collapse col-12 col-md-auto text-center " id="navbarNavAltMarkup"> -->
@@ -53,8 +60,8 @@ if (isset($_POST['logout'])) {
         <div class=" col-3 col-md-auto d-inline-flex text-end">
           <?php
           if (!isset($_SESSION['user'])) { ?>
-            <a href="sign_in.php" class="btn btn-outline-primary me-1">Inscription</a>
-            <a href="login.php" class="btn btn-primary">Connexion</a>
+            <a href="inscription" class="btn btn-outline-primary me-1">Inscription</a>
+            <a href="connexion" class="btn btn-primary">Connexion</a>
           <?php } else { ?>
             <a href="logout.php" class="btn btn-outline-primary me-1">Déconnexion</a>
           <?php } ?>

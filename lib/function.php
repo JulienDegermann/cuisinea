@@ -3,7 +3,6 @@ function stringToArray (string $string) {
   return explode(PHP_EOL, $string);
 }
 
-
 function getAllCategories (PDO $pdo) {
   $sql = "SELECT * FROM categories;";
   $stmt = $pdo->prepare($sql);

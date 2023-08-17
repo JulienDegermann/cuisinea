@@ -11,10 +11,7 @@ require_once 'lib/function.php';
     <?php
     $reciepies = getAllReciepes($pdo);
     foreach ($reciepies as $reciepe) {
-
       $category = getCategoryById($pdo, $reciepe['category_id']);
-
-
       $current = new Reciepe(
         $reciepe['id'],
         $reciepe['title'],

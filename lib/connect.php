@@ -4,6 +4,9 @@ require_once '../classes/class_users.php';
 require_once 'function.php';
 require_once 'pdo.php';
 
+$errors = [];
+$successes = [];
+
 if (isset($_POST['connect'])) {
   // set cookies
   if (isset($_POST['remember'])) {
@@ -42,10 +45,11 @@ if (isset($_POST['connect'])) {
 }
 if ($errors) {
   $_SESSION['errors'] = $errors;
-  header('location: ../login.php');
+  header('location: ../connexion');
 }
 if ($successes && $current_user) {
   $_SESSION['successes'] = $successes;
-  header('location: ../index.php');
+  var_dump('coucou');
+  header('location: /cuisinea');
 }
 

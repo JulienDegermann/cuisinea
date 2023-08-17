@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteRule ^$ index.php [N,L]
+RewriteRule ^toutes-les-recettes$ reciepes.php [N,L]
+RewriteRule ^nouvelle-recette$ new_reciepe.php [N,L]
+RewriteRule ^connexion$ login.php [N,L]
+RewriteRule ^inscription$ sign_in.php [N,L]
+
+RewriteRule ^recette/([0-9]+)$ reciepe.php?id=$1 [N,L]

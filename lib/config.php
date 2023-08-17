@@ -14,9 +14,9 @@ $networks = [
 
 
 $menus = [
-  'index.php' => 'Accueil',
-  'reciepes.php' => 'Nos recettes',
-  'new_reciepe.php' => 'Ajouter/Modifier une recette'
+  '' => 'Accueil',
+  'toutes-les-recettes' => 'Nos recettes',
+  'nouvelle-recette' => 'Ajouter/Modifier une recette'
 ];
 
 $pages = [
@@ -31,6 +31,7 @@ $pages = [
 
 $current_page = basename($_SERVER['SCRIPT_NAME']);
 
+$meta_description = 'Cuisinéa, ce sont des recettes faciles, faites par vous et pour vous!';
 
 define('_UPLOADS_IMG_DIR_', 'uploads/images/');
 define('_ASSETS_IMG_DIR_', 'assets/images/');

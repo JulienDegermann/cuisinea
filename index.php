@@ -17,7 +17,7 @@ require_once 'classes/class_reciepe.php';
       Rejoignez-nous pour partager vos propres créations et explorer un monde de saveurs authentiques.
       </p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a href="reciepes.php" class="btn btn-primary btn-lg px-4 me-md-2">Voir nos recettes</a>
+        <a href="toutes-les-recettes" class="btn btn-primary btn-lg px-4 me-md-2">Voir nos recettes</a>
       </div>
     </div>
   </div>
